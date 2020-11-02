@@ -1,0 +1,90 @@
+<style type="text/css">
+ body{
+  width: 100%
+ }
+ input{
+  background: #13131326;
+  width: 100%;
+  outline: none;
+ }
+ button{
+  width: 50%;font-weight: 700;
+  color: white;cursor: pointer;
+ }
+ input,button{
+  padding: 10px;border: 0;border-radius: 20px;
+  display: block;margin-top: 20px;
+ }
+ .box{
+  width: 60%;display: flex;clear: both;
+  margin: 0 auto;text-align: center;
+ }
+ #reset{
+  background: #FF9800;
+ }
+ #cek{
+  background: #4DB6AC;
+ }
+ h3,h5{
+  margin: 0;font-family: 'Verdana';text-align: center;
+ }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>UNGUIDED</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+  <h3>Game Tebak Angka 1-10</h3>
+  <div class="box">
+   <input type="text" name="inputan" id="inputan">
+  </div>
+
+  <div class="box">
+   <button id="cek" onclick="cekAngka()">Cek</button>
+  </div>
+  <div id="app">
+  <h2>{{ pria.nama }}|{{ pria.npm }}|{{ pria.kelas}}</h2>
+</div>
+</body>
+<script type="text/javascript">
+ var angka;
+ function randomAngka(){
+  angka = Math.floor(Math.random() * 10);
+  return angka;     
+ }
+ randomAngka();
+ var chance = 3;
+ function cekAngka() {
+  var inputan = document.getElementById('inputan').value;
+if (inputan == angka) {
+   alert('Benar angkanya adalah '+ angka);
+}else if(inputan<1){
+   alert('ANGKA HANYA 1-10 SAJA')
+}else if(inputan>10){
+   alert('ANGKA HANYA 1-10 SAJA')
+  }else if(inputan<angka){
+   alert('Angka yang kamu masukkan terlalu kecil')
+  }else{
+   alert('Angka yang kamu masukkan terlalu besar')
+  }
+ }
+
+</script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            pria: {
+                nama: 'Jovan Chundhana',
+                npm: '180709784',
+                kelas: 'B'
+            }
+        },
+    });
+</script>
+
+</html>
